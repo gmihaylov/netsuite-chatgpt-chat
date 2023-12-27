@@ -7,7 +7,7 @@ define(['N/ui/serverWidget', 'N/file', 'N/url'],
     (ui, file, url) => {
 
         const suiteletScriptId = 'customscript_ns_chatgpt_chat_sl';
-        const suiteletDeploymentId = 'customdeploy1'
+        const suiteletDeploymentId = 'customdeploy1';
 
         /**
          * Defines the function definition that is executed before record is loaded.
@@ -24,7 +24,7 @@ define(['N/ui/serverWidget', 'N/file', 'N/url'],
                         const htmlFld = form.addField({
                                 id: 'custpage_html',
                                 type: ui.FieldType.INLINEHTML,
-                                label: 'Chat Form'
+                                label: 'Chat Popup'
                         });
                         htmlFld.defaultValue = file.load({
                                 id: './html/chat.html'

@@ -42,7 +42,7 @@ define(['N/https', 'N/error', 'N/log'],
                 responseJSON = JSON.parse(response.body);
             } catch (e) {
                 throw new error.create({
-                    name: 'INVALID_PARAMETER',
+                    name: 'UNABLE_TO_PARSE_RESPONSE_BODY',
                     message: 'Unable to parse response body: ' + e.message,
                     notifyOff: false
                 });

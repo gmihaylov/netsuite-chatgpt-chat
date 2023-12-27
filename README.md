@@ -28,4 +28,5 @@ Ask ChatGPT NetSuite questions directly from your transactions.
 ## Screenshots
 
 ![App Screenshot](screenshots/screenshot3.png)
+![App Screenshot](screenshots/screenshot4.png)
 ![App Screenshot](screenshots/screenshot2.png)

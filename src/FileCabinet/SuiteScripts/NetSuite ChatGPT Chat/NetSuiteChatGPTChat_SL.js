@@ -7,8 +7,8 @@ define(['N/https', 'N/error', 'N/log'],
     (https, error, log) => {
 
         const OPENAI_MODELS = {
-            GPT3: "gpt-3.5-turbo",
-            GPT4: "gpt-4"
+            GPT3: 'gpt-3.5-turbo',
+            GPT4: 'gpt-4'
         }
         const OPENAI_API_KEY = '';
         const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';

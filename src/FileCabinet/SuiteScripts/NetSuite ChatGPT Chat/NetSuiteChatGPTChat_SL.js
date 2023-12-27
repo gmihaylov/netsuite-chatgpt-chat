@@ -6,10 +6,15 @@ define(['N/https', 'N/error', 'N/log'],
 
     (https, error, log) => {
 
+        const OPENAI_MODELS = {
+            GPT3: "gpt-3.5-turbo",
+            GPT4: "gpt-4"
+        }
         const OPENAI_API_KEY = '';
         const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
-        const SYSTEM_PROMPT = 'You are a NetSuite assistant, skilled in NetSuite concepts with creative flair.'
-        const APP_NAME = 'NetSuite Chat GPT SL'
+        const OPENAI_MODEL = OPENAI_MODELS.GPT3;
+        const SYSTEM_PROMPT = 'You are a NetSuite assistant, skilled in NetSuite concepts with creative flair.';
+        const APP_NAME = 'NetSuite Chat GPT SL';
 
         /**
          * Defines the Suitelet script trigger point.
@@ -69,7 +74,7 @@ define(['N/https', 'N/error', 'N/log'],
 
         const buildPrompt = (query) => {
             return {
-                "model": "gpt-3.5-turbo",
+                "model": OPENAI_MODEL,
                 "messages": [
                     {
                         "role": "system",

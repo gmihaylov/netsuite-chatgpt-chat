@@ -12,6 +12,11 @@ Ask ChatGPT NetSuite questions directly from your transactions.
   - Acts like service to connect to OpenAI API
   - Responses from OpenAI -> NetSuiteChatGPTChat_SL are fetched and rendered in the chat popup by chat.html
 
+## How to switch between ChatGPT 3.5 / ChatGPT 4?
+- In NetSuiteChatGPTChat_SL
+  - const OPENAI_MODEL = OPENAI_MODELS.GPT3; for ChatGPT 3.5-Turbo) (Default)
+  - const OPENAI_MODEL = OPENAI_MODELS.GPT4; for ChatGPT 4 (May answer slower)
+
 ## Considerations
 - May break NetSuite functionalities / view
 - Not a production version

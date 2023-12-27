@@ -5,15 +5,15 @@ Ask ChatGPT NetSuite questions directly from your transactions.
 
 ## Architecture
 - NetSuiteChatGPTChat_UE Uservent Script
-  - Adds inline html field
-  - Content including html, js, css is added from html/chat.html file
-  - User Event is deployed on Sales Order record and chat popup will show on VIEW
+  - Adds INLINEHTML field on beforeLoad
+  - Content including html, js, css is injected from ./html/chat.html file into INLINEHTML field
+  - User Event is deployed on Sales Order record and chat popup will show on scriptContext.UserEventType.VIEW
 - NetSuiteChatGPTChat_SL Suitelet Script
   - Acts like service to connect to OpenAI API
   - Responses from OpenAI -> NetSuiteChatGPTChat_SL are fetched and rendered in the chat popup by chat.html
 
 ## Considerations
-- Can break NetSuite functionalities / view
+- May break NetSuite functionalities / view
 - Not a production version
 - Not well tested
 - Use at your own risk

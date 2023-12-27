@@ -14,7 +14,7 @@ Ask ChatGPT NetSuite questions directly from your transactions.
 
 ## How to switch between ChatGPT 3.5 / ChatGPT 4?
 - In NetSuiteChatGPTChat_SL
-  - const OPENAI_MODEL = OPENAI_MODELS.GPT3; for ChatGPT 3.5-Turbo) (Default)
+  - const OPENAI_MODEL = OPENAI_MODELS.GPT3; for ChatGPT 3.5-Turbo (Default)
   - const OPENAI_MODEL = OPENAI_MODELS.GPT4; for ChatGPT 4 (May answer slower)
 
 ## Considerations

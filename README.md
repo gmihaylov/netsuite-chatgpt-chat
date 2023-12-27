@@ -36,7 +36,6 @@ Ask ChatGPT NetSuite questions directly from your transactions.
 - Popup-chat-window (https://github.com/KRISHNAPRASADEK/Popup-chat-window)
 
 ## Screenshots
-
-![App Screenshot](screenshots/screenshot3.png)
 ![App Screenshot](screenshots/screenshot4.png)
+![App Screenshot](screenshots/screenshot3.png)
 ![App Screenshot](screenshots/screenshot2.png)

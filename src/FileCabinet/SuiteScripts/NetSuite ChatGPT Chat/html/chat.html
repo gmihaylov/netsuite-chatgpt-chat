@@ -6,11 +6,6 @@
             rel="stylesheet"
     />
     <script>
-        const form = document.getElementById("form")
-
-        form.addEventListener('submit' ,(e)=> {
-            e.preventDefault();
-        });
         let audio1 = new Audio(
             "https://github.com/gmihaylov/netsuite-chatgpt-chat/raw/main/src/FileCabinet/SuiteScripts/NetSuite%20ChatGPT%20Chat/sounds/click.mp3"
         );
@@ -39,18 +34,16 @@
             audio1.play();
         }
 
-        //Gets the text from the input box(user)
         function userResponse() {
-            console.log("response");
             let userText = document.getElementById("textInput").value;
 
             if (userText == "") {
                 alert("Please type something!");
             } else {
                 document.getElementById("messageBox").innerHTML += `<div class="first-chat">
-      <p>${userText}</p>
-      <div class="arrow"></div>
-    </div>`;
+                  <p>${userText}</p>
+                  <div class="arrow"></div>
+                </div>`;
                 let audio3 = new Audio(
                     "https://github.com/gmihaylov/netsuite-chatgpt-chat/raw/main/src/FileCabinet/SuiteScripts/NetSuite%20ChatGPT%20Chat/sounds/pop.mp3"
                 );

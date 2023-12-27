@@ -10,7 +10,7 @@ Ask ChatGPT NetSuite questions directly from your transactions.
   - User Event is deployed on Sales Order record and chat popup will show on VIEW
 - NetSuiteChatGPTChat_SL Suitelet Script
   - Acts like service to connect to OpenAI API
-  - Responses to fetch api from chat.html
+  - Responses from OpenAI -> NetSuiteChatGPTChat_SL are fetched and rendered in the chat popup by chat.html
 
 ## Considerations
 - Can break NetSuite functionalities / view

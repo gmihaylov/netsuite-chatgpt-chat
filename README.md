@@ -1,7 +1,11 @@
 # NetSuite ChatGPT Chat
 Ask ChatGPT NetSuite questions directly from your transactions.
 
-![App Screenshot](screenshots/screenshot1.png)
+## Example usage
+![App Screenshot](screenshots/screenshot8.gif)
+
+## What if ChatGPT refuses to complete requested tasks or produce wrong answers? Maybe its seasonal depression?
+![App Screenshot](screenshots/screenshot9.jpg)
 
 ## Architecture
 - NetSuiteChatGPTChat_UE Uservent Script
@@ -42,5 +46,6 @@ Ask ChatGPT NetSuite questions directly from your transactions.
 
 ## Screenshots
 ![App Screenshot](screenshots/screenshot4.png)
+![App Screenshot](screenshots/screenshot1.png)
 ![App Screenshot](screenshots/screenshot3.png)
 ![App Screenshot](screenshots/screenshot2.png)

@@ -6,7 +6,7 @@ define(['N/https', 'N/error', 'N/log'],
 
     (https, error, log) => {
 
-        const OPENAI_API_KEY = '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';
+        const OPENAI_API_KEY = '';
         const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
         const SYSTEM_PROMPT = 'You are a NetSuite assistant, skilled in NetSuite concepts with creative flair.'
         const APP_NAME = 'NetSuite Chat GPT SL'

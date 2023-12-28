@@ -9,8 +9,8 @@ Ask ChatGPT NetSuite questions directly from your transactions.
 
 ## Remembering of previous messages / history / preserving context in ChatGPT
 - Since version 1.1.0, the Service Suitelet is sending back all messages from the previous conversation to the ChatGPT API.
-- Context is preserved by the current user in the JSON file (each user has its own file).
-- Even if you log out from NetSuite and log in again on the other day, your conversation context will be preserved, and you can ask what you asked previously.
+- Context / Chat History with ChatGPT is preserved by the current user in the JSON file (each user has its own file).
+- Even if you log out from NetSuite and log in again on the other day, your conversation context with ChatGPT will be preserved, and you can ask what you asked previously.
   
 ![App Screenshot](screenshots/screenshot10.png)
 - History of previous conversation with ChatGPT is preserved in the Script Folder in format UserID.json. You can delete previous conversation by deleting the JSON file.
@@ -67,7 +67,7 @@ _Hello, <u>**George!**</u> How can I assist you today?_
   - const OPENAI_MODEL = OPENAI_MODELS.GPT4; for ChatGPT 4 (May answer slower)
   - const OPENAI_MODEL = OPENAI_MODELS.GPT4TURBO; for ChatGPT 4 Turbo
 
-## How to adjust model temperature?
+## How to adjust ChatGPT model temperature?
 - In NetSuiteChatGPTChat_SL
   - const OPENAI_TEMPERATURE = 1; //What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. Defaults to 1
 
@@ -87,7 +87,7 @@ _Hello, <u>**George!**</u> How can I assist you today?_
 
 ## How to Set up
 - Put your OpenAI API Key in NetSuiteChatGPTChat_SL in OPENAI_API_KEY const
-- System prompt can be customized, currently "You are a NetSuite assistant, skilled in NetSuite concepts with creative flair."
+- Initial system prompt to ChatGPT can be customized, currently "You are a NetSuite assistant, skilled in NetSuite concepts with creative flair."
 
 ## How to obtain OpenAI / ChatGPT API Keys
 - Go to https://platform.openai.com/api-keys

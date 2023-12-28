@@ -1,6 +1,8 @@
 /**
  * @NApiVersion 2.1
  * @NScriptType UserEventScript
+ * @author Georgi Mihaylov <mihaylov@gmail.com>
+ * @see {@link https://github.com/gmihaylov/netsuite-chatgpt-chat}
  */
 define(['N/ui/serverWidget', 'N/file', 'N/url'],
     
@@ -40,30 +42,6 @@ define(['N/ui/serverWidget', 'N/file', 'N/url'],
                 });
         }
 
-        /**
-         * Defines the function definition that is executed before record is submitted.
-         * @param {Object} scriptContext
-         * @param {Record} scriptContext.newRecord - New record
-         * @param {Record} scriptContext.oldRecord - Old record
-         * @param {string} scriptContext.type - Trigger type; use values from the context.UserEventType enum
-         * @since 2015.2
-         */
-        const beforeSubmit = (scriptContext) => {
-
-        }
-
-        /**
-         * Defines the function definition that is executed after record is submitted.
-         * @param {Object} scriptContext
-         * @param {Record} scriptContext.newRecord - New record
-         * @param {Record} scriptContext.oldRecord - Old record
-         * @param {string} scriptContext.type - Trigger type; use values from the context.UserEventType enum
-         * @since 2015.2
-         */
-        const afterSubmit = (scriptContext) => {
-
-        }
-
-        return {beforeLoad, beforeSubmit, afterSubmit}
+        return {beforeLoad}
 
     });

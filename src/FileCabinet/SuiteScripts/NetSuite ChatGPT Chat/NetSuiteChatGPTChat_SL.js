@@ -1,18 +1,22 @@
 /**
  * @NApiVersion 2.1
  * @NScriptType Suitelet
+ * @author Georgi Mihaylov <mihaylov@gmail.com>
+ * @see {@link https://github.com/gmihaylov/netsuite-chatgpt-chat}
  */
 define(['N/https', 'N/error', 'N/log', 'N/runtime', 'N/file', 'N/query'],
 
     (https, error, log, runtime, file, query) => {
 
         const OPENAI_MODELS = {
-            GPT3: 'gpt-3.5-turbo',
-            GPT4: 'gpt-4'
+            GPT3: 'gpt-3.5-turbo-1106',
+            GPT4: 'gpt-4',
+            GPT4TURBO: 'gpt-4-1106-preview'
         }
         const OPENAI_API_KEY = '';
         const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
         const OPENAI_MODEL = OPENAI_MODELS.GPT3;
+        const OPENAI_TEMPERATURE = 1; // What sampling temperature to use, between 0 and 2. Defaults to 1
         const SYSTEM_PROMPT = 'You are a NetSuite assistant, skilled in NetSuite concepts with creative flair.';
         const APP_NAME = 'NetSuite Chat GPT SL';
 
@@ -92,7 +96,8 @@ define(['N/https', 'N/error', 'N/log', 'N/runtime', 'N/file', 'N/query'],
         const buildRequest = (messages) => {
             return {
                 "model": OPENAI_MODEL,
-                "messages": messages
+                "messages": messages,
+                "temperature": OPENAI_TEMPERATURE
             };
         }
 

@@ -18,21 +18,21 @@ Ask ChatGPT NetSuite questions directly from your transactions.
 ![App Screenshot](screenshots/screenshot11.png)
 
 ## Example of historical context
-**User:** _Please remember my name and always reply with: "**George**, here is your answer:"_
+**User:** _Please remember my name and always reply with: "<u>**George**</u>, here is your answer:"_
 
 **Assistant:**
-_Understood, **George**! I will remember your name and reply with "**George**, here is your answer:" before providing the response. How can I assist you today?_
+_Understood, <u>**George**</u>! I will remember your name and reply with "<u>**George**</u>, here is your answer:" before providing the response. How can I assist you today?_
 
 **User:**
 _where to find Reports?_
 
 **Assistant:**
-_**George**, here is your answer: To find Reports in NetSuite: 1. Log in to your NetSuite account. 2. Navigate to the "Reports" menu at the top of the page. 3. Select the desired report category, such as Financial, Sales, or Inventory. 4. From the drop-down menu, choose the specific report you want to access. 5. This will take you to the Report page, where you can customize the report parameters and generate the report based on your preferences._
+_<u>**George**</u>, here is your answer: To find Reports in NetSuite: 1. Log in to your NetSuite account. 2. Navigate to the "Reports" menu at the top of the page. 3. Select the desired report category, such as Financial, Sales, or Inventory. 4. From the drop-down menu, choose the specific report you want to access. 5. This will take you to the Report page, where you can customize the report parameters and generate the report based on your preferences._
 
 **User:** _Thanks!_
 
 Assistant:
-_You're welcome, **George**! If you have any more questions, feel free to ask. I'm here to help!_
+_You're welcome, <u>**George**</u>! If you have any more questions, feel free to ask. I'm here to help!_
 
 **.... on the other day:**
 
@@ -40,14 +40,14 @@ _You're welcome, **George**! If you have any more questions, feel free to ask. I
 _Where to find saved searches?_
 
 Assistant:
-_**George**, here is your answer: To find saved searches in NetSuite: 1. Log in to your NetSuite account. 2. Navigate to the "Lists" menu at the top of the page. 3. Select "Search" from the drop-down menu. 4. In the second drop-down menu, click on "Saved Searches". 5. This will take you to the Saved Searches menu page, where you can view and manage your saved searches._
+_<u>**George**</u>, here is your answer: To find saved searches in NetSuite: 1. Log in to your NetSuite account. 2. Navigate to the "Lists" menu at the top of the page. 3. Select "Search" from the drop-down menu. 4. In the second drop-down menu, click on "Saved Searches". 5. This will take you to the Saved Searches menu page, where you can view and manage your saved searches._
 
 **.... on the day after tomorrow:**
 
 **User:** _Hello_
 
 **Assistant:**
-_Hello, **George!** How can I assist you today?_
+_Hello, <u>**George!**</u> How can I assist you today?_
 > More info can be found here (https://community.openai.com/t/gpt-3-5-turbo-how-to-remember-previous-messages-like-chat-gpt-website/170370/5)
 
 ## Architecture

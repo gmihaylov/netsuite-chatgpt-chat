@@ -13,7 +13,7 @@ Ask ChatGPT NetSuite questions directly from your transactions.
 - Even if you log out from NetSuite and log in again on the other day, your conversation will be preserved, and you can ask what you asked previously.
   
 ![App Screenshot](screenshots/screenshot10.png)
-- History of previous conversation is preserved in the Script Folder in format UserID.json. You can delete previous conversation by deleting JSON file.
+- History of previous conversation is preserved in the Script Folder in format UserID.json. You can delete previous conversation by deleting the JSON file.
 
 ![App Screenshot](screenshots/screenshot11.png)
 
@@ -58,6 +58,7 @@ _Hello, <u>**George!**</u> How can I assist you today?_
 - NetSuiteChatGPTChat_SL Suitelet Script
   - Acts like service to connect to OpenAI API
   - Responses from OpenAI -> NetSuiteChatGPTChat_SL are fetched and rendered in the chat popup by chat.html
+  - Preserves previous conversation/context in JSON file
 
 ## How to switch between ChatGPT 3.5 / ChatGPT 4?
 - In NetSuiteChatGPTChat_SL

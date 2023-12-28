@@ -57,7 +57,8 @@ _Hello, <u>**George!**</u> How can I assist you today?_
   - User Event is deployed on Sales Order record and chat popup will show on scriptContext.UserEventType.VIEW
 - NetSuiteChatGPTChat_SL Suitelet Script
   - Acts like service to connect to OpenAI API
-  - Responses from OpenAI -> NetSuiteChatGPTChat_SL are fetched and rendered in the chat popup by chat.html
+  - Message requests are sent to NetSuiteChatGPTChat_SL > OpenAI by chat.html
+  - Messages responses are received from NetSuiteChatGPTChat_SL < OpenAI and rendered in the chat popup by chat.html
   - Preserves previous conversation/context in JSON file
 
 ## How to switch between ChatGPT 3.5 / ChatGPT 4?

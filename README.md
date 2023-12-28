@@ -18,37 +18,35 @@ Ask ChatGPT NetSuite questions directly from your transactions.
 ![App Screenshot](screenshots/screenshot11.png)
 
 ## Example of historical context
-User:
+**User:** _Please remember my name and always reply with: "**George**, here is your answer:"_
 
-Please remember my name and always reply with: "**George**, here is your answer:"
-
-Assistant:
+**Assistant:**
 _Understood, **George**! I will remember your name and reply with "**George**, here is your answer:" before providing the response. How can I assist you today?_
 
-User:
-where to find Reports?
+**User:**
+_where to find Reports?_
 
-Assistant:
+**Assistant:**
 _**George**, here is your answer: To find Reports in NetSuite: 1. Log in to your NetSuite account. 2. Navigate to the "Reports" menu at the top of the page. 3. Select the desired report category, such as Financial, Sales, or Inventory. 4. From the drop-down menu, choose the specific report you want to access. 5. This will take you to the Report page, where you can customize the report parameters and generate the report based on your preferences._
 
-User: Thanks!
+**User:** _Thanks!_
 
 Assistant:
 _You're welcome, **George**! If you have any more questions, feel free to ask. I'm here to help!_
 
 **.... on the other day:**
 
-User: 
-Where to find saved searches?
+**User:** 
+_Where to find saved searches?_
 
 Assistant:
 _**George**, here is your answer: To find saved searches in NetSuite: 1. Log in to your NetSuite account. 2. Navigate to the "Lists" menu at the top of the page. 3. Select "Search" from the drop-down menu. 4. In the second drop-down menu, click on "Saved Searches". 5. This will take you to the Saved Searches menu page, where you can view and manage your saved searches._
 
 **.... on the day after tomorrow:**
 
-User: Hello
+**User:** _Hello_
 
-Assistant:
+**Assistant:**
 _Hello, **George!** How can I assist you today?_
 > More info can be found here (https://community.openai.com/t/gpt-3-5-turbo-how-to-remember-previous-messages-like-chat-gpt-website/170370/5)
 
@@ -71,12 +69,12 @@ _Hello, **George!** How can I assist you today?_
   - const OPENAI_TEMPERATURE = 1; //What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. Defaults to 1
 
 ## Supported OpenAI (ChatGPT) Models:
- Model              | Description                                                                                                                                                                                                                                                  | Config Option in NetSuiteChatGPTChat_SL                             |
+ OpenAI Model              | Description                                                                                                                                                                                                                                                  | Config Option in NetSuiteChatGPTChat_SL                             |
 |--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
 | gpt-4-1106-preview | **GPT-4 Turbo**<br/>The latest GPT-4 model with improved instruction following, JSON mode, reproducible outputs, parallel function calling, and more. Returns a maximum of 4,096 output tokens. This preview model is not yet suited for production traffic. | const OPENAI_MODEL = OPENAI_MODELS.GPT4TURBO; |
 | gpt-4      | Currently points to gpt-4-0613                                                                                                                                                                                                                                          | const OPENAI_MODEL = OPENAI_MODELS.GPT4;      |
 | gpt-3.5-turbo-1106 | **Updated GPT 3.5 Turbo**<br/>The latest GPT-3.5 Turbo model with improved instruction following, JSON mode, reproducible outputs, parallel function calling, and more. Returns a maximum of 4,096 output tokens.| const OPENAI_MODEL = OPENAI_MODELS.GPT3;      
-> More information can be found here https://platform.openai.com/docs/models
+> More information about OpenAI models can be found here https://platform.openai.com/docs/models
 
 ## Considerations
 - May break NetSuite functionalities / view
@@ -84,7 +82,7 @@ _Hello, **George!** How can I assist you today?_
 - Not well tested
 - Use at your own risk
 
-## How to Setup
+## How to Set up
 - Put your OpenAI API Key in NetSuiteChatGPTChat_SL in OPENAI_API_KEY const
 - System prompt can be customized, currently "You are a NetSuite assistant, skilled in NetSuite concepts with creative flair."
 

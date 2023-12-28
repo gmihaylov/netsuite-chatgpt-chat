@@ -59,7 +59,7 @@ _Hello, <u>**George!**</u> How can I assist you today?_
   - Acts like service to connect to OpenAI API
   - Message requests are sent to NetSuiteChatGPTChat_SL > OpenAI by chat.html
   - Messages responses are received from NetSuiteChatGPTChat_SL < OpenAI and rendered in the chat popup by chat.html
-  - Preserves previous conversation/context in JSON file
+  - Messages are preserved in JSON file by User ID (each system user has own file)
 
 ## How to switch between ChatGPT 3.5 / ChatGPT 4?
 - In NetSuiteChatGPTChat_SL

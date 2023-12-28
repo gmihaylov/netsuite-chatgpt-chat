@@ -8,10 +8,11 @@ Ask ChatGPT NetSuite questions directly from your transactions.
 ![App Screenshot](screenshots/screenshot9.jpg)
 
 ## Remembering of previous messages / history / preserving context 
-- Since version 1.1.0 the Service Suitelet is sending back all messages from the previous conversation.
+- Since version 1.1.0 the Service Suitelet is sending back all messages from the previous conversation to the API.
+- Context is preserved by current user ID
 - Even if you log out from NetSuite and come back, you can ask what you asked previously.
   - ![App Screenshot](screenshots/screenshot10.png)
-- History of previous conversation is preserved in the Script Folder in format UserID.json
+- History of previous conversation is preserved in the Script Folder in format UserID.json. You can delete previous conversation by deleting JSON file.
 ![App Screenshot](screenshots/screenshot11.png)
 
 ## Architecture

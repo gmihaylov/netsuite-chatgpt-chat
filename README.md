@@ -7,6 +7,13 @@ Ask ChatGPT NetSuite questions directly from your transactions.
 ## What if ChatGPT refuses to complete requested tasks or produce wrong answers? Maybe its seasonal depression?
 ![App Screenshot](screenshots/screenshot9.jpg)
 
+## Remembering of previous messages / history / preserving context 
+- Since version 1.1.0 the Service Suitelet is sending back all messages from the previous conversation.
+- Even if you log out from NetSuite and come back, you can ask what you asked previously.
+  - ![App Screenshot](screenshots/screenshot10.png)
+- History of previous conversation is preserved in the Script Folder in format UserID.json
+![App Screenshot](screenshots/screenshot11.png)
+
 ## Architecture
 - NetSuiteChatGPTChat_UE Uservent Script
   - Adds INLINEHTML field on beforeLoad

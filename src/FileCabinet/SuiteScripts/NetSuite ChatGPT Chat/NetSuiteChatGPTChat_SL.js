@@ -2,9 +2,9 @@
  * @NApiVersion 2.1
  * @NScriptType Suitelet
  */
-define(['N/https', 'N/error', 'N/log'],
+define(['N/https', 'N/error', 'N/log', 'N/runtime', 'N/file', 'N/query'],
 
-    (https, error, log) => {
+    (https, error, log, runtime, file, query) => {
 
         const OPENAI_MODELS = {
             GPT3: 'gpt-3.5-turbo',
@@ -26,13 +26,26 @@ define(['N/https', 'N/error', 'N/log'],
         const onRequest = (scriptContext) => {
             const query = scriptContext.request.parameters.query;
             let responseJSON = {};
+            let openAIResponse = {
+                reply: 'Sorry, ChatGPT is currently unavailable. Please try again later.'
+            };
+
+            const message = {"role": "user", "content": query};
 
             try {
+                const messages = getOldMessages(message);
+                const request = buildRequest(messages);
+
                 const response = https.post({
                     url: OPENAI_API_URL,
                     headers: getHeaders(),
-                    body: JSON.stringify(buildPrompt(query))
+                    body: JSON.stringify(request)
                 });
+
+                log.debug({
+                    title: APP_NAME,
+                    details: 'OpenAI request: ' + JSON.stringify(request)
+                })
 
                 log.debug({
                     title: APP_NAME,
@@ -40,6 +53,10 @@ define(['N/https', 'N/error', 'N/log'],
                 })
 
                 responseJSON = JSON.parse(response.body);
+
+                openAIResponse = parseOpenAIResponse(responseJSON);
+                saveMessages(messages, openAIResponse);
+
             } catch (e) {
                 throw new error.create({
                     name: 'UNABLE_TO_PARSE_RESPONSE_BODY',
@@ -48,7 +65,7 @@ define(['N/https', 'N/error', 'N/log'],
                 });
             }
 
-            scriptContext.response.write(JSON.stringify(parseOpenAIResponse(responseJSON)));
+            scriptContext.response.write(JSON.stringify(openAIResponse));
         }
 
         const parseOpenAIResponse = (response) => {
@@ -72,19 +89,56 @@ define(['N/https', 'N/error', 'N/log'],
             return result;
         }
 
-        const buildPrompt = (query) => {
+        const buildRequest = (messages) => {
             return {
                 "model": OPENAI_MODEL,
-                "messages": [
-                    {
-                        "role": "system",
-                        "content": SYSTEM_PROMPT
-                    },
-                    {
-                        "role": "user",
-                        "content": query
-                    }
-                ]
+                "messages": messages
+            };
+        }
+
+        const getOldMessages = (message) => {
+            let messages = [];
+            const currentUser = runtime.getCurrentUser().id;
+
+            try {
+                messages = file.load(`./${currentUser}.json`).getContents();
+                messages = JSON.parse(messages);
+            } catch (e) {}
+
+            if(messages.length === 0) {
+                messages.push({
+                    "role": "system",
+                    "content": SYSTEM_PROMPT
+                });
+            }
+
+            messages.push(message);
+
+            return messages;
+        }
+
+        const saveMessages = (messages, openAIResponse) => {
+            const openAIMessage =  {"role": "assistant", "content": openAIResponse.reply};
+            messages.push(openAIMessage);
+
+            try {
+                const currentUser = runtime.getCurrentUser().id;
+                const currentScriptFileId = getScriptFileByScriptId(runtime.getCurrentScript().id);
+                const currentScriptFolderId = getFolderIdByScriptFileId(currentScriptFileId);
+
+                const messagesFile = file.create({
+                    name: `${currentUser}.json`,
+                    fileType: file.Type.JSON,
+                    contents: JSON.stringify(messages),
+                    folder: currentScriptFolderId
+                })
+
+                messagesFile.save();
+            } catch (e) {
+                log.debug({
+                    title: APP_NAME,
+                    details: `Unable to save session messages: ${JSON.stringify(e.message)}`
+                })
             }
         }
 
@@ -93,6 +147,39 @@ define(['N/https', 'N/error', 'N/log'],
                 'Authorization': 'Bearer ' + OPENAI_API_KEY,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
+            }
+        }
+
+
+        const getScriptFileByScriptId = (scriptId) => {
+            try {
+                const suiteQuery =  'SELECT scriptfile FROM SCRIPT where scriptid = ?'
+
+                return query.runSuiteQL(
+                    {
+                        query: suiteQuery,
+                        params: [scriptId]
+                    }
+                ).asMappedResults()[0].scriptfile;
+            } catch (e) {
+                return null
+            }
+        }
+
+        const getFolderIdByScriptFileId = (scriptId) => {
+            try {
+                const suiteQuery = "SELECT folder from File WHERE id = ?";
+
+                var queryResults = query.runSuiteQL(
+                    {
+                        query: suiteQuery,
+                        params: [scriptId]
+                    }
+                ).asMappedResults();
+
+                return queryResults[0].folder;
+            } catch (e) {
+                return null
             }
         }
 

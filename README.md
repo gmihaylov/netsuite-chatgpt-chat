@@ -61,10 +61,11 @@ _Hello, <u>**George!**</u> How can I assist you today?_
   - Messages responses are received from NetSuiteChatGPTChat_SL < OpenAI and rendered in the chat popup by chat.html
   - Messages are preserved in JSON file by User ID (each system user has own file)
 
-## How to switch between ChatGPT 3.5 / ChatGPT 4?
+## How to switch between ChatGPT 3.5 / ChatGPT 4 / ChatGPT 4 Turbo?
 - In NetSuiteChatGPTChat_SL
   - const OPENAI_MODEL = OPENAI_MODELS.GPT3; for ChatGPT 3.5-Turbo (Default)
   - const OPENAI_MODEL = OPENAI_MODELS.GPT4; for ChatGPT 4 (May answer slower)
+  - const OPENAI_MODEL = OPENAI_MODELS.GPT4TURBO; for ChatGPT 4 Turbo
 
 ## How to adjust model temperature?
 - In NetSuiteChatGPTChat_SL

@@ -7,17 +7,17 @@ Ask ChatGPT NetSuite questions directly from your transactions.
 ## What if ChatGPT refuses to complete requested tasks or produce wrong answers? Maybe its seasonal depression?
 ![App Screenshot](screenshots/screenshot9.jpg)
 
-## Remembering of previous messages / history / preserving context 
+## Remembering of previous messages / history / preserving context in ChatGPT
 - Since version 1.1.0, the Service Suitelet is sending back all messages from the previous conversation to the ChatGPT API.
-- Context is preserved by the current user in the JSON file (each system user has its own file).
+- Context is preserved by the current user in the JSON file (each user has its own file).
 - Even if you log out from NetSuite and log in again on the other day, your conversation context will be preserved, and you can ask what you asked previously.
   
 ![App Screenshot](screenshots/screenshot10.png)
-- History of previous conversation is preserved in the Script Folder in format UserID.json. You can delete previous conversation by deleting the JSON file.
+- History of previous conversation with ChatGPT is preserved in the Script Folder in format UserID.json. You can delete previous conversation by deleting the JSON file.
 
 ![App Screenshot](screenshots/screenshot11.png)
 
-## Example of historical context
+## Example of historical context in ChatGPT
 **USER:** _Please remember my name and always reply with: "<u>**George**</u>, here is your answer:"_
 
 **ASSISTANT:**
@@ -59,7 +59,7 @@ _Hello, <u>**George!**</u> How can I assist you today?_
   - Acts like service to connect to OpenAI API
   - Message requests are sent to NetSuiteChatGPTChat_SL > OpenAI by chat.html
   - Messages responses are received from NetSuiteChatGPTChat_SL < OpenAI and rendered in the chat popup by chat.html
-  - Messages are preserved in JSON file by User ID (each system user has own file)
+  - Messages are preserved in JSON file by User ID (each user has its own file)
 
 ## How to switch between ChatGPT 3.5 / ChatGPT 4 / ChatGPT 4 Turbo?
 - In NetSuiteChatGPTChat_SL
@@ -71,7 +71,7 @@ _Hello, <u>**George!**</u> How can I assist you today?_
 - In NetSuiteChatGPTChat_SL
   - const OPENAI_TEMPERATURE = 1; //What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. Defaults to 1
 
-## Supported OpenAI (ChatGPT) Models:
+## Supported OpenAI ChatGPT Models:
  OpenAI Model              | Description                                                                                                                                                                                                                                                  | Config Option in NetSuiteChatGPTChat_SL                             |
 |--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
 | gpt-4-1106-preview | **GPT-4 Turbo**<br/>The latest GPT-4 model with improved instruction following, JSON mode, reproducible outputs, parallel function calling, and more. Returns a maximum of 4,096 output tokens. This preview model is not yet suited for production traffic. | const OPENAI_MODEL = OPENAI_MODELS.GPT4TURBO; |
@@ -89,7 +89,7 @@ _Hello, <u>**George!**</u> How can I assist you today?_
 - Put your OpenAI API Key in NetSuiteChatGPTChat_SL in OPENAI_API_KEY const
 - System prompt can be customized, currently "You are a NetSuite assistant, skilled in NetSuite concepts with creative flair."
 
-## How to obtain OpenAI API Keys
+## How to obtain OpenAI / ChatGPT API Keys
 - Go to https://platform.openai.com/api-keys
 - Click on "+Create new secret key"
 ![App Screenshot](screenshots/screenshot5.png)

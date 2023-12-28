@@ -1,5 +1,5 @@
 # NetSuite ChatGPT Chat Popup
-Ask ChatGPT NetSuite questions directly from your transactions.
+Integrate ChatGPT with NetSuite and ask ChatGPT NetSuite related questions directly from your transactions.
 
 ## Example usage
 ![App Screenshot](screenshots/screenshot8.gif)

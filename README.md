@@ -97,7 +97,7 @@ TRANDATE = 16/07/2023
 SHIPDATE = 17/07/2023
 ```
 
-### ChatGPT Conversation:
+### Example ChatGPT Conversation with exposed transaction fields:
 
 **USER:** _Today is 29/12/2023, how many days have passed since the shipping date?_
 

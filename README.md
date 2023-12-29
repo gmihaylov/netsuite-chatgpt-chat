@@ -13,7 +13,7 @@ Integrate ChatGPT with NetSuite and ask questions about current transaction.
 - Even if you log out from NetSuite and log in again on the other day, your conversation context with ChatGPT will be preserved, and you can ask what you asked previously.
   
 ![App Screenshot](screenshots/screenshot10.png)
-- History of previous conversation with ChatGPT is preserved in the Script Folder in format UserID.json. You can delete previous conversation by deleting the JSON file.
+- History of previous conversation with ChatGPT for each user is preserved in the Script Folder in format UserID.json. You can delete previous conversation by deleting the JSON file.
 
 ![App Screenshot](screenshots/screenshot11.png)
 

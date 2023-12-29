@@ -85,6 +85,16 @@ Then you can ask more specific questions about the data you exposed:
 > [!CAUTION]
 > I'm not responsible for any data leak by using this software.
 
+## Advanced Context Usage Example
+```
+const CONTEXT_EXPOSED_FIELDS = ['tranid', 'trandate', 'shipdate'];
+const CONTEXT_PROMPT = "I'm currently logged into NetSuite and viewing Sales Order ${tranid}, transaction date is ${trandate}, ship date is set to ${shipdate}";
+```
+**USER:** _Today is 29/12/2023, how many days have passed since the shipping date?_
+
+**ASSISTANT:** _The ship date you provided was 17th July 2023 and today's date you provided is 29th December 2023. To find out how many days have passed since the shipping date, you would subtract the ship date from today's date. Using a standard online date calculator, the result would be 165 days. So, 165 days have passed since the ship date of 17th July 2023 as of 29th December 2023. Please note that the calculation is inclusive, meaning it includes both the start date (17th July 2023) and end date (29th December 2023) in the calculation. Let me know if there's anything else you need help with!_
+
+
 ## Architecture
 - **NetSuiteChatGPTChat_UE UserEvent Script**
   - Adds INLINEHTML field on beforeLoad

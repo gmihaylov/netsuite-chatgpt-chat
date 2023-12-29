@@ -85,7 +85,7 @@ Then you can ask more specific questions about the data you exposed:
 > [!CAUTION]
 > I'm not responsible for any data leak by using this software.
 
-## Advanced Context Usage Example
+## Advanced NetSuite > ChatGPT Integration Usage Example
 ```
 const CONTEXT_EXPOSED_FIELDS = ['tranid', 'trandate', 'shipdate'];
 const CONTEXT_PROMPT = "I'm currently logged into NetSuite and viewing Sales Order ${tranid}, transaction date is ${trandate}, ship date is set to ${shipdate}";
@@ -97,7 +97,7 @@ TRANDATE = 16/07/2023
 SHIPDATE = 17/07/2023
 ```
 
-### Example ChatGPT Conversation with exposed transaction fields:
+### Example ChatGPT conversation with exposed transaction fields:
 
 **USER:** _Today is 29/12/2023, how many days have passed since the shipping date?_
 

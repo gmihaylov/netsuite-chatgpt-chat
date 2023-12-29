@@ -1,4 +1,4 @@
-# NetSuite ChatGPT Chat Popup
+# NetSuite ChatGPT Integration
 Integrate ChatGPT with NetSuite and ask questions about current transaction. 
 
 ## Example usage

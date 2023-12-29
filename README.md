@@ -115,6 +115,37 @@ Screenshots:
 
 ![App Screenshot](screenshots/screenshot16.png)
 
+### NetSuite / ChatGPT Conversation in JSON
+```
+[
+    ... previous history omitted
+    {
+        "role": "user",
+        "content": "I'm currently logged into NetSuite and viewing Sales Order SLS00000631, transaction date is 16/07/2023, ship date is set to 17/07/2023"
+    },
+    {
+        "role": "assistant",
+        "content": "Hello! The information you've provided indicates that you're viewing a sales order, SLS00000631, in NetSuite with a transaction date of 16th July 2023. The transaction date is typically the date when the order was entered into the system or agreed upon with the customer. \n\nIn addition, the ship date is set to 17th July 2023. This is the scheduled date on which the products in the sales order are expected to be shipped to the customer – in this case, a day after the transaction date. \n\nRemember that the ship date depends on various parameters like the product availability, shipping method, and the customer's location. Also, the status of the order (pending, partially shipped, shipped, etc.) affects the scheduling and execution of the shipment.\n\nThis is standard in many businesses to ensure that the ordered items are sent promptly, satisfying customers' expectations, and keeping a healthy cash flow.\n\nIf there are any adjustments needed (either in your order details or shipping schedule), you can make them by editing the sales order, provided your user role in NetSuite has the necessary permissions. \n\nLet me know if you have further questions or need assistance with other NetSuite functionalities."
+    },
+    {
+        "role": "user",
+        "content": "today is 29/12/2023, how many days have passed since the shipping date?"
+    },
+    {
+        "role": "assistant",
+        "content": "The ship date you provided was 17th July 2023 and today's date you provided is 29th December 2023. \n\nTo find out how many days have passed since the shipping date, you would subtract the ship date from today's date.\n\nUsing a standard online date calculator, the result would be 165 days. \n\nSo, 165 days have passed since the ship date of 17th July 2023 as of 29th December 2023.\n\nPlease note that the calculation is inclusive, meaning it includes both the start date (17th July 2023) and end date (29th December 2023) in the calculation. Let me know if there's anything else you need help with!"
+    },
+    {
+        "role": "user",
+        "content": "please reply with short answer giving the final result"
+    },
+    {
+        "role": "assistant",
+        "content": "165 days have passed since the ship date."
+    }
+]
+```
+
 ## Architecture
 - **NetSuiteChatGPTChat_UE UserEvent Script**
   - Adds INLINEHTML field on beforeLoad

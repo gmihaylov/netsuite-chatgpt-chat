@@ -94,6 +94,9 @@ const CONTEXT_PROMPT = "I'm currently logged into NetSuite and viewing Sales Ord
 
 **ASSISTANT:** _The ship date you provided was 17th July 2023 and today's date you provided is 29th December 2023. To find out how many days have passed since the shipping date, you would subtract the ship date from today's date. Using a standard online date calculator, the result would be 165 days. So, 165 days have passed since the ship date of 17th July 2023 as of 29th December 2023. Please note that the calculation is inclusive, meaning it includes both the start date (17th July 2023) and end date (29th December 2023) in the calculation. Let me know if there's anything else you need help with!_
 
+**USER:** _Please reply with short answer giving the final result_
+
+**ASSISTANT:** _165 days have passed since the ship date._
 
 ## Architecture
 - **NetSuiteChatGPTChat_UE UserEvent Script**

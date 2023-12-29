@@ -86,11 +86,11 @@ Then you can ask more specific questions about the data you exposed:
 > I'm not responsible for any data leak by using this software.
 
 ## Architecture
-- NetSuiteChatGPTChat_UE Uservent Script
+- **NetSuiteChatGPTChat_UE UserEvent Script**
   - Adds INLINEHTML field on beforeLoad
   - Content including html, js, css is injected from ./html/chat.html file into INLINEHTML field
   - User Event is deployed on Sales Order record and chat popup will show on scriptContext.UserEventType.VIEW
-- NetSuiteChatGPTChat_SL Suitelet Script
+- **NetSuiteChatGPTChat_SL Suitelet Script**
   - Acts like service to connect to OpenAI API
   - Message requests are sent to NetSuiteChatGPTChat_SL > OpenAI by chat.html
   - Messages responses are received from NetSuiteChatGPTChat_SL < OpenAI and rendered in the chat popup by chat.html

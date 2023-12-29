@@ -51,7 +51,7 @@ _Hello, <u>**George!**</u> How can I assist you today?_
 > More info can be found here (https://community.openai.com/t/gpt-3-5-turbo-how-to-remember-previous-messages-like-chat-gpt-website/170370/5)
 
 ## How to integrate ChatGPT with NetSuite?
-[!CAUTION]
+> [!CAUTION]
 > !!! If Context mode is Enabled, Sensitive information will be shared with ChatGPT !!!
 > !!! Use at your own risk !!!
 

@@ -1,7 +1,7 @@
 # NetSuite ChatGPT Integration
 Integrate ChatGPT with NetSuite and ask questions about current transaction. 
 
-## Example usage
+## Basic usage ( No integration )
 ![App Screenshot](screenshots/screenshot8.gif)
 
 ## What if ChatGPT refuses to complete requested tasks or produce wrong answers? Maybe its seasonal depression?
@@ -11,7 +11,7 @@ Integrate ChatGPT with NetSuite and ask questions about current transaction.
 - Since version 1.1.0, the Service Suitelet is sending back all messages from the previous conversation to the ChatGPT API.
 - Context / Chat History with ChatGPT is preserved by the current user in the JSON file (each user has its own file).
 - Even if you log out from NetSuite and log in again on the other day, your conversation context with ChatGPT will be preserved, and you can ask what you asked previously.
-  
+
 ![App Screenshot](screenshots/screenshot10.png)
 - History of previous conversation with ChatGPT for each user is preserved in the Script Folder in format UserID.json. You can delete previous conversation by deleting the JSON file.
 
@@ -50,6 +50,10 @@ _<u>**George**</u>, here is your answer: To find saved searches in NetSuite: 1. 
 _Hello, <u>**George!**</u> How can I assist you today?_
 > More information can be found here: https://community.openai.com/t/gpt-3-5-turbo-how-to-remember-previous-messages-like-chat-gpt-website/170370/5
 
+## NetSuite ChatGPT Integration
+- Since version 1.2.0 you can integrate NetSuite with ChatGPT via !givemorecontext magic word
+- You can set template and which transaction fields to be exposed to ChatGPT when calling !givemorecontext in NetSuiteChatGPTChat_UE
+
 ## How to integrate ChatGPT with NetSuite?
 You can integrate / give more context to ChatGPT by exposing sensitive data like transaction number, transaction amount or any other transaction field values.
 
@@ -85,7 +89,7 @@ Then you can ask more specific questions about the data you exposed:
 > [!CAUTION]
 > I'm not responsible for any data leak by using this software.
 
-## Advanced NetSuite > ChatGPT Integration Usage Example
+## Advanced NetSuite / ChatGPT Integration Usage Example
 ```
 const CONTEXT_EXPOSED_FIELDS = ['tranid', 'trandate', 'shipdate'];
 const CONTEXT_PROMPT = "I'm currently logged into NetSuite and viewing Sales Order ${tranid}, transaction date is ${trandate}, ship date is set to ${shipdate}";

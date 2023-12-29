@@ -160,6 +160,7 @@ Screenshots:
   - Message requests are sent to NetSuiteChatGPTChat_SL > OpenAI by chat.html
   - Messages responses are received from NetSuiteChatGPTChat_SL < OpenAI and rendered in the chat popup by chat.html
   - Messages are preserved in JSON file by User ID (each user has its own file)
+  - Integrates ChatGPT with NetSuite if contextMode is set to true in NetSuiteChatGPTChat_UE ( **CAUTION:** sensitive NetSuite data is sent to ChatGPT / OpenAI API )
 
 ## How to switch between ChatGPT 3.5 / ChatGPT 4 / ChatGPT 4 Turbo?
 In NetSuiteChatGPTChat_SL:

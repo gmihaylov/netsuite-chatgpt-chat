@@ -52,7 +52,7 @@ _Hello, <u>**George!**</u> How can I assist you today?_
 
 ## NetSuite ChatGPT Integration
 - Since version 1.2.0 you can integrate NetSuite with ChatGPT via !givemorecontext magic word
-- You can set template and which transaction fields to be exposed to ChatGPT when calling !givemorecontext in NetSuiteChatGPTChat_UE
+- You can set template and which transaction fields to be exposed to ChatGPT when calling !givemorecontext in NetSuiteChatGPTChat_SL
 
 ## How to integrate ChatGPT with NetSuite?
 You can integrate / give more context to ChatGPT by exposing sensitive data like transaction number, transaction amount or any other transaction field values.

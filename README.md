@@ -97,14 +97,19 @@ Then you can ask more specific questions about the data you exposed:
   - Messages are preserved in JSON file by User ID (each user has its own file)
 
 ## How to switch between ChatGPT 3.5 / ChatGPT 4 / ChatGPT 4 Turbo?
-- In NetSuiteChatGPTChat_SL
-  - const OPENAI_MODEL = OPENAI_MODELS.GPT3; for ChatGPT 3.5-Turbo (Default)
-  - const OPENAI_MODEL = OPENAI_MODELS.GPT4; for ChatGPT 4 (May answer slower)
-  - const OPENAI_MODEL = OPENAI_MODELS.GPT4TURBO; for ChatGPT 4 Turbo
+In NetSuiteChatGPTChat_SL:
+```
+const OPENAI_MODEL = OPENAI_MODELS.GPT3; for ChatGPT 3.5-Turbo (Default)
+const OPENAI_MODEL = OPENAI_MODELS.GPT4; for ChatGPT 4 (May answer slower)
+const OPENAI_MODEL = OPENAI_MODELS.GPT4TURBO; for ChatGPT 4 Turbo
+```
 
 ## How to adjust ChatGPT model temperature?
-- In NetSuiteChatGPTChat_SL
-  - const OPENAI_TEMPERATURE = 1; //What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. Defaults to 1
+In NetSuiteChatGPTChat_SL:
+
+```
+const OPENAI_TEMPERATURE = 1; //What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. Defaults to 1
+```
 
 ## Supported OpenAI ChatGPT Models:
  OpenAI Model              | Description                                                                                                                                                                                                                                                  | Config Option in NetSuiteChatGPTChat_SL                             |

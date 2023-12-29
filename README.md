@@ -107,6 +107,14 @@ SHIPDATE = 17/07/2023
 
 **ASSISTANT:** _165 days have passed since the ship date._
 
+Screenshots:
+
+![App Screenshot](screenshots/screenshot14.png)
+
+![App Screenshot](screenshots/screenshot15.png)
+
+![App Screenshot](screenshots/screenshot16.png)
+
 ## Architecture
 - **NetSuiteChatGPTChat_UE UserEvent Script**
   - Adds INLINEHTML field on beforeLoad

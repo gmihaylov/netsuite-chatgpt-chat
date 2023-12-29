@@ -48,10 +48,10 @@ _<u>**George**</u>, here is your answer: To find saved searches in NetSuite: 1. 
 
 **ASSISTANT:**
 _Hello, <u>**George!**</u> How can I assist you today?_
-> More info can be found here (https://community.openai.com/t/gpt-3-5-turbo-how-to-remember-previous-messages-like-chat-gpt-website/170370/5)
+> More information can be found here: https://community.openai.com/t/gpt-3-5-turbo-how-to-remember-previous-messages-like-chat-gpt-website/170370/5
 
 ## How to integrate ChatGPT with NetSuite?
-You can give more context to ChatGPT by exposing sensitive data like transaction number, transaction amount or any other field value.
+You can give more context to ChatGPT by exposing sensitive data like transaction number, transaction amount or any other transaction field value.
 
 This is possible by enabling context mode in NetSuiteChatGPTChat_UE:
 ```

@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] 29.12.2023
+- Added !givemorecontext magic word
+
 ## [1.1.1] 29.12.2023
 - Added temperature parameter
 - Added support for GPT4-Turbo (gpt-4-1106-preview)

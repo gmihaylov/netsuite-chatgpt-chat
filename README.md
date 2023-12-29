@@ -120,15 +120,21 @@ const OPENAI_TEMPERATURE = 1; //What sampling temperature to use, between 0 and 
 > More information about OpenAI models can be found here https://platform.openai.com/docs/models
 
 ## Considerations
-- May break NetSuite functionalities / view
-- Not a production version
+- May break NetSuite functionalities / views
+- Not a PRODUCTION version
 - Not well tested
+- Can expose sensitive data
 - Use at your own risk
 
 ## How to Set up
-- Put your OpenAI API Key in NetSuiteChatGPTChat_SL in OPENAI_API_KEY const
-- Initial system prompt to ChatGPT can be customized, currently "You are a NetSuite assistant, skilled in NetSuite concepts with creative flair."
-
+- Place your OpenAI API Key in NetSuiteChatGPTChat_SL:
+```
+const OPENAI_API_KEY = '';
+```
+- Initial system prompt to ChatGPT can be customized. Currently, "You are a NetSuite assistant, skilled in NetSuite concepts with creative flair.":
+```
+const SYSTEM_PROMPT = 'You are a NetSuite assistant, skilled in NetSuite concepts with creative flair.';
+```
 ## How to obtain OpenAI / ChatGPT API Keys
 - Go to https://platform.openai.com/api-keys
 - Click on "+Create new secret key"

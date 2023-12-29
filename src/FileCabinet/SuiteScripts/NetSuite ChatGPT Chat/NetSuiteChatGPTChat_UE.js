@@ -10,6 +10,7 @@ define(['N/ui/serverWidget', 'N/file', 'N/url'],
 
         const suiteletScriptId = 'customscript_ns_chatgpt_chat_sl';
         const suiteletDeploymentId = 'customdeploy1';
+        const contextMode = false; // !!! WARNING !!! If true, sensitive information will be exposed to ChatGPT
 
         /**
          * Defines the function definition that is executed before record is loaded.
@@ -30,16 +31,24 @@ define(['N/ui/serverWidget', 'N/file', 'N/url'],
                         });
                         htmlFld.defaultValue = file.load({
                                 id: './html/chat.html'
-                        }).getContents().replace('${suiteletUrl}', getSuiteletUrl())
+                        }).getContents().replace('${suiteletUrl}', getSuiteletUrl(scriptContext))
                 }
         }
 
-        const getSuiteletUrl = () => {
-                return url.resolveScript({
-                        scriptId: suiteletScriptId,
-                        deploymentId: suiteletDeploymentId,
-                        returnExternalUrl: false
-                });
+        const getSuiteletUrl = (scriptContext) => {
+                if(contextMode) {
+                        return url.resolveScript({
+                                scriptId: suiteletScriptId,
+                                deploymentId: suiteletDeploymentId,
+                                returnExternalUrl: false
+                        }) + `&context=true&id=${scriptContext.newRecord.id}&type=${scriptContext.newRecord.type}`;
+                } else {
+                        return url.resolveScript({
+                                scriptId: suiteletScriptId,
+                                deploymentId: suiteletDeploymentId,
+                                returnExternalUrl: false
+                        });
+                }
         }
 
         return {beforeLoad}

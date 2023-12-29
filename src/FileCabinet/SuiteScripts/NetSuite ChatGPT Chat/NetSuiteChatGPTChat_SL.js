@@ -4,21 +4,30 @@
  * @author Georgi Mihaylov <mihaylov@gmail.com>
  * @see {@link https://github.com/gmihaylov/netsuite-chatgpt-chat}
  */
-define(['N/https', 'N/error', 'N/log', 'N/runtime', 'N/file', 'N/query'],
+define(['N/https', 'N/error', 'N/log', 'N/runtime', 'N/file', 'N/query', 'N/search'],
 
-    (https, error, log, runtime, file, query) => {
+    (https, error, log, runtime, file, query, search) => {
 
         const OPENAI_MODELS = {
             GPT3: 'gpt-3.5-turbo-1106',
             GPT4: 'gpt-4',
             GPT4TURBO: 'gpt-4-1106-preview'
         }
+
+        // OpenAI Specific
         const OPENAI_API_KEY = '';
         const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
         const OPENAI_MODEL = OPENAI_MODELS.GPT3;
         const OPENAI_TEMPERATURE = 1; // What sampling temperature to use, between 0 and 2. Defaults to 1
         const SYSTEM_PROMPT = 'You are a NetSuite assistant, skilled in NetSuite concepts with creative flair.';
+
+        // App Specific
         const APP_NAME = 'NetSuite Chat GPT SL';
+
+        // Context related
+        const CONTEXT_MAGIC_WORD = '!givemorecontext';
+        const CONTEXT_EXPOSED_FIELDS = ['tranid'];
+        const CONTEXT_PROMPT = "I'm currently logged into NetSuite and viewing Sales Order ${tranid}";
 
         /**
          * Defines the Suitelet script trigger point.
@@ -28,7 +37,39 @@ define(['N/https', 'N/error', 'N/log', 'N/runtime', 'N/file', 'N/query'],
          * @since 2015.2
          */
         const onRequest = (scriptContext) => {
-            const query = scriptContext.request.parameters.query;
+            let query = scriptContext.request.parameters.query;
+            const context = scriptContext.request.parameters.context === 'true';
+            const isMagicWord = query === CONTEXT_MAGIC_WORD;
+
+            if(context && isMagicWord) {
+                const id = scriptContext.request.parameters.id;
+                const type = scriptContext.request.parameters.type;
+
+                const fieldValues = search.lookupFields({
+                    type: type,
+                    id: id,
+                    columns: CONTEXT_EXPOSED_FIELDS
+                });
+
+                let contextMessage = CONTEXT_PROMPT;
+
+                CONTEXT_EXPOSED_FIELDS.forEach(function (field) {
+                    contextMessage = contextMessage.replace('${' + field + '}', fieldValues[field])
+                });
+
+                query = contextMessage;
+
+                log.debug({
+                    title: APP_NAME,
+                    details: `Context mode: Enabled, ID: ${id} Type: ${type} Context Query: ${contextMessage}`
+                });
+            } else {
+                log.debug({
+                    title: APP_NAME,
+                    details: `Context mode: Disabled`
+                })
+            }
+
             let responseJSON = {};
             let openAIResponse = {
                 reply: 'Sorry, ChatGPT is currently unavailable. Please try again later.'
@@ -67,6 +108,11 @@ define(['N/https', 'N/error', 'N/log', 'N/runtime', 'N/file', 'N/query'],
                     message: 'Unable to parse response body: ' + e.message,
                     notifyOff: false
                 });
+            }
+
+            if(context && isMagicWord) {
+                openAIResponse.exposed = true;
+                openAIResponse.exposedMessage = query;
             }
 
             scriptContext.response.write(JSON.stringify(openAIResponse));

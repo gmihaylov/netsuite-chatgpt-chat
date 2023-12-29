@@ -2,7 +2,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [1.2.0] 29.12.2023
-- Added !givemorecontext magic word
+- Added NetSuite > ChatGPT integration via !givemorecontext magic word
+- Added LICENSE.md
+- HTML code cleanup
 
 ## [1.1.1] 29.12.2023
 - Added temperature parameter

@@ -1,5 +1,5 @@
 # NetSuite ChatGPT Chat Popup
-Integrate ChatGPT with NetSuite and ask ChatGPT NetSuite related questions directly from your transactions.
+Integrate ChatGPT with NetSuite and ask questions about current transaction. 
 
 ## Example usage
 ![App Screenshot](screenshots/screenshot8.gif)
@@ -51,9 +51,39 @@ _Hello, <u>**George!**</u> How can I assist you today?_
 > More info can be found here (https://community.openai.com/t/gpt-3-5-turbo-how-to-remember-previous-messages-like-chat-gpt-website/170370/5)
 
 ## How to integrate ChatGPT with NetSuite?
+You can give more context to ChatGPT by exposing sensitive data like transaction number, transaction amount or any other field value.
+
+This is possible by enabling context mode in NetSuiteChatGPTChat_UE:
+```
+const contextMode = true;
+```
+The magic word, exposed fields and prompt that give more context to ChatGPT can be configured in NetSuiteChatGPTChat_SL:
+```
+const CONTEXT_MAGIC_WORD = '!givemorecontext';
+const CONTEXT_EXPOSED_FIELDS = ['tranid'];
+const CONTEXT_PROMPT = "I'm currently logged into NetSuite and viewing Sales Order ${tranid}";
+```
+
+Then in the chat popup just say: !givemorecontext. If contextMode is set to true in NetSuiteChatGPTChat_UE, the UserEvent will instruct the service Suitelet that you're in context mode, Suitelet will source and replace field values from the current transaction in your prompt and send it to ChatGPT.
+
+The chat box will ⚠️ WARN YOU ⚠️ that you're exposing / sending sensitive information to OpenAI API. 
+
+Then ChatGPT will confirm your context:
+
+![App Screenshot](screenshots/screenshot12.png)
+
+Then you can ask more specific questions about the data you exposed:
+
+![App Screenshot](screenshots/screenshot13.png)
+
 > [!CAUTION]
-> !!! If Context mode is Enabled, Sensitive information will be shared with ChatGPT !!!
-> !!! Use at your own risk !!!
+> If context mode is enabled, SENSITIVE information will be shared with OpenAI / ChatGPT.
+
+> [!CAUTION]
+> Use at your own risk.
+
+> [!CAUTION]
+> I'm not responsible for any data leak by using this software.
 
 ## Architecture
 - NetSuiteChatGPTChat_UE Uservent Script

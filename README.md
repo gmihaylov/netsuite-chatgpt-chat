@@ -119,7 +119,7 @@ Screenshots:
 
 ![App Screenshot](screenshots/screenshot16.png)
 
-### NetSuite / ChatGPT Conversation in JSON
+### NetSuite / ChatGPT Conversation in JSON:
 ```
 [
     ... previous history omitted

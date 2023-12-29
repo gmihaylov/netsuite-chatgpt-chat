@@ -51,7 +51,7 @@ _Hello, <u>**George!**</u> How can I assist you today?_
 > More information can be found here: https://community.openai.com/t/gpt-3-5-turbo-how-to-remember-previous-messages-like-chat-gpt-website/170370/5
 
 ## How to integrate ChatGPT with NetSuite?
-You can give more context to ChatGPT by exposing sensitive data like transaction number, transaction amount or any other transaction field value.
+You can give more context to ChatGPT by exposing sensitive data like transaction number, transaction amount or any other transaction field values.
 
 This is possible by enabling context mode in NetSuiteChatGPTChat_UE:
 ```

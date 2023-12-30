@@ -1,7 +1,7 @@
-# NetSuite ChatGPT Integration
-Integrate ChatGPT with NetSuite and ask questions about current transaction. 
+# NetSuite ChatGPT Chat
+Integrate ChatGPT with NetSuite and ask questions. 
 
-## Basic usage ( No integration )
+## Basic usage
 ![App Screenshot](screenshots/screenshot8.gif)
 
 ## What if ChatGPT refuses to complete requested tasks or produce wrong answers? Maybe its seasonal depression?
@@ -51,73 +51,11 @@ _Hello, <u>**George!**</u> How can I assist you today?_
 > More information can be found here: https://community.openai.com/t/gpt-3-5-turbo-how-to-remember-previous-messages-like-chat-gpt-website/170370/5
 
 ## NetSuite ChatGPT Integration
-- Since version 1.2.0 you can integrate NetSuite with ChatGPT via !givemorecontext magic word
-- You can set template and which transaction fields to be exposed to ChatGPT when calling !givemorecontext in NetSuiteChatGPTChat_SL
+Check <a href="https://github.com/gmihaylov/netsuite-chatgpt-integration">NetSuite ChatGPT Integration</a>
 
 ## How to integrate ChatGPT with NetSuite?
 You can integrate / give more context to ChatGPT by exposing sensitive data like transaction number, transaction amount or any other transaction field values.
-
-This is possible by enabling context mode in NetSuiteChatGPTChat_UE:
-```
-const contextMode = true;
-```
-The magic word, exposed fields and prompt that give more context to ChatGPT can be configured in NetSuiteChatGPTChat_SL:
-```
-const CONTEXT_MAGIC_WORD = '!givemorecontext';
-const CONTEXT_EXPOSED_FIELDS = ['tranid'];
-const CONTEXT_PROMPT = "I'm currently logged into NetSuite and viewing Sales Order ${tranid}";
-```
-
-Then in the chat popup just say: !givemorecontext. If contextMode is set to true in NetSuiteChatGPTChat_UE, the UserEvent will instruct the service Suitelet that you're in context mode, Suitelet will source and replace field values from the current transaction in your prompt and send it to ChatGPT.
-
-The chat box will ⚠️ WARN YOU ⚠️ that you're exposing / sending sensitive information to OpenAI API. 
-
-Then ChatGPT will confirm your context:
-
-![App Screenshot](screenshots/screenshot12.png)
-
-Then you can ask more specific questions about the data you exposed:
-
-![App Screenshot](screenshots/screenshot13.png)
-
-> [!CAUTION]
-> If context mode is enabled, SENSITIVE information will be shared with OpenAI / ChatGPT.
-
-> [!CAUTION]
-> Use at your own risk.
-
-> [!CAUTION]
-> I'm not responsible for any data leak by using this software.
-
-## Advanced NetSuite / ChatGPT Integration Usage Example
-```
-const CONTEXT_EXPOSED_FIELDS = ['tranid', 'trandate', 'shipdate'];
-const CONTEXT_PROMPT = "I'm currently logged into NetSuite and viewing Sales Order ${tranid}, transaction date is ${trandate}, ship date is set to ${shipdate}";
-```
-
-NetSuite's transaction field values are:
-```
-TRANDATE = 16/07/2023
-SHIPDATE = 17/07/2023
-```
-
-### Example ChatGPT conversation with exposed transaction fields:
-
-**USER:** _Today is 29/12/2023, how many days have passed since the shipping date?_
-
-**ASSISTANT:** _The ship date you provided was 17th July 2023 and today's date you provided is 29th December 2023. To find out how many days have passed since the shipping date, you would subtract the ship date from today's date. Using a standard online date calculator, the result would be 165 days. So, 165 days have passed since the ship date of 17th July 2023 as of 29th December 2023. Please note that the calculation is inclusive, meaning it includes both the start date (17th July 2023) and end date (29th December 2023) in the calculation. Let me know if there's anything else you need help with!_
-
-**USER:** _Please reply with short answer giving the final result_
-
-**ASSISTANT:** _165 days have passed since the ship date._
-
-Screenshots:
-
-![App Screenshot](screenshots/screenshot14.png)
-
-![App Screenshot](screenshots/screenshot15.png)
-
-![App Screenshot](screenshots/screenshot16.png)
+More information can be found here <a href="https://github.com/gmihaylov/netsuite-chatgpt-integration">NetSuite ChatGPT Integration</a>
 
 ### NetSuite / ChatGPT Conversation in JSON:
 ```
@@ -160,8 +98,7 @@ Screenshots:
   - Message requests are sent to NetSuiteChatGPTChat_SL > OpenAI by chat.html
   - Messages responses are received from NetSuiteChatGPTChat_SL < OpenAI and rendered in the chat popup by chat.html
   - Messages are preserved in JSON file by User ID (each user has its own file)
-  - Integrates ChatGPT with NetSuite if contextMode is set to true in NetSuiteChatGPTChat_UE ( **CAUTION:** sensitive NetSuite data is sent to ChatGPT / OpenAI API )
-
+  
 ## How to switch between ChatGPT 3.5 / ChatGPT 4 / ChatGPT 4 Turbo?
 In NetSuiteChatGPTChat_SL:
 ```

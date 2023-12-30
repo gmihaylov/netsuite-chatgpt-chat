@@ -24,11 +24,6 @@ define(['N/https', 'N/error', 'N/log', 'N/runtime', 'N/file', 'N/query', 'N/sear
         // App Specific
         const APP_NAME = 'NetSuite Chat GPT SL';
 
-        // Context related
-        const CONTEXT_MAGIC_WORD = '!givemorecontext';
-        const CONTEXT_EXPOSED_FIELDS = ['tranid'];
-        const CONTEXT_PROMPT = "I'm currently logged into NetSuite and viewing Sales Order ${tranid}";
-
         /**
          * Defines the Suitelet script trigger point.
          * @param {Object} scriptContext
@@ -38,37 +33,6 @@ define(['N/https', 'N/error', 'N/log', 'N/runtime', 'N/file', 'N/query', 'N/sear
          */
         const onRequest = (scriptContext) => {
             let query = scriptContext.request.parameters.query;
-            const context = scriptContext.request.parameters.context === 'true';
-            const isMagicWord = query === CONTEXT_MAGIC_WORD;
-
-            if(context && isMagicWord) {
-                const id = scriptContext.request.parameters.id;
-                const type = scriptContext.request.parameters.type;
-
-                const fieldValues = search.lookupFields({
-                    type: type,
-                    id: id,
-                    columns: CONTEXT_EXPOSED_FIELDS
-                });
-
-                let contextMessage = CONTEXT_PROMPT;
-
-                CONTEXT_EXPOSED_FIELDS.forEach(function (field) {
-                    contextMessage = contextMessage.replace('${' + field + '}', fieldValues[field])
-                });
-
-                query = contextMessage;
-
-                log.debug({
-                    title: APP_NAME,
-                    details: `Context mode: Enabled, ID: ${id} Type: ${type} Context Query: ${contextMessage}`
-                });
-            } else {
-                log.debug({
-                    title: APP_NAME,
-                    details: `Context mode: Disabled`
-                })
-            }
 
             let responseJSON = {};
             let openAIResponse = {
@@ -108,11 +72,6 @@ define(['N/https', 'N/error', 'N/log', 'N/runtime', 'N/file', 'N/query', 'N/sear
                     message: 'Unable to parse response body: ' + e.message,
                     notifyOff: false
                 });
-            }
-
-            if(context && isMagicWord) {
-                openAIResponse.exposed = true;
-                openAIResponse.exposedMessage = query;
             }
 
             scriptContext.response.write(JSON.stringify(openAIResponse));

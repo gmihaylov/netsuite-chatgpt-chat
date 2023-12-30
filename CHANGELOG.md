@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.0] 30.12.2023
+- Removed NetSuite > ChatGPT integration via !givemorecontext magic word
+- NetSuite Integration functionality is moved to  https://github.com/gmihaylov/netsuite-chatgpt-integration repository
+
 ## [1.2.0] 29.12.2023
 - Added NetSuite > ChatGPT integration via !givemorecontext magic word
 - Added LICENSE.md
